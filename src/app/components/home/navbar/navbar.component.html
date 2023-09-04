@@ -1,0 +1,36 @@
+<nav class="menu-container">
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+
+    <div class="nav-container">
+        <div class="logo">
+            <a class="menu-logo">
+                <img src="../../../../assets/images/logo.png" alt="logo">
+            </a>
+            <h3 class="logo-text">Task Magnet</h3>
+        </div>
+
+        <div class="menu">
+            <ul>
+            </ul>
+            <ul>
+                <li>
+                    <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
+                        <option value="en" autofocus>{{'languages.lbl-en' | translate}}</option>
+                        <option value="bos">{{'languages.lbl-bos' | translate}}</option>
+                    </select>
+                </li>
+                <li>
+                    <a href="#signup">
+                        {{'lbl-login' | translate}}
+                    </a>
+                </li>
+                <li>
+                    <a href="#login">{{'lbl-start-free' | translate}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
