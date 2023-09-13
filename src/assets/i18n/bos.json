@@ -4,5 +4,11 @@
     "lbl-en": "Engleski",
     "lbl-bos": "Bosanski"
   },
-  "lbl-login": "Prijavi se"
+  "lbl-login": "Prijavi se",
+  "lbl-register": "Registruj se",
+  "lbl-pricing": "Cijene",
+  "home-page": {
+    "lbl-title": "TaskMagnet: <br> Gdje zadaci postaju postignuća.",
+    "lbl-subtitle": "Poboljšajte svoj dnevni tok rada uz TaskMagnet."
+  }
 }

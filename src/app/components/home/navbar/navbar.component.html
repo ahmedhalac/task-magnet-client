@@ -1,20 +1,11 @@
 <nav class="menu-container">
-    <input type="checkbox" aria-label="Toggle menu" />
-    <span></span>
-    <span></span>
-    <span></span>
-
     <div class="nav-container">
         <div class="logo">
-            <a class="menu-logo">
-                <img src="../../../../assets/images/logo.png" alt="logo">
-            </a>
-            <h3 class="logo-text">Task Magnet</h3>
+            <img src="../../../../assets/images/logo.png" alt="logo">
+            <h3 class="logo-text">TaskMagnet</h3>
         </div>
 
         <div class="menu">
-            <ul>
-            </ul>
             <ul>
                 <li>
                     <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
@@ -23,12 +14,14 @@
                     </select>
                 </li>
                 <li>
-                    <a href="#signup">
-                        {{'lbl-login' | translate}}
-                    </a>
+                    <a>{{'lbl-pricing' | translate}}</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a routerLink="login">{{'lbl-login' | translate}}</a>
                 </li>
                 <li>
-                    <a href="#login">{{'lbl-start-free' | translate}}</a>
+                    <a routerLink="register">{{'lbl-register' | translate}}</a>
                 </li>
             </ul>
         </div>

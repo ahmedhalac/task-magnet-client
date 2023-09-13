@@ -1,6 +1,11 @@
 <app-navbar></app-navbar>
 <div class="container">
     <section>
-
+        <div class="home-title">
+            <h1 [innerHTML]="'home-page.lbl-title' | translate"></h1>
+            <h2>{{'home-page.lbl-subtitle' | translate}}</h2>
+            <button class="start-for-free">{{'lbl-start-free' | translate}}</button>
+        </div>
+        <img src="../../../assets/images/home-page.avif" alt="">
     </section>
 </div>

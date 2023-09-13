@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+app-navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.container {
+  height: 750px;
+  width: 100%;
+  position: relative;
+}
+
+.home-title {
+  font-size: 22px;
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  line-height: 2.5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+}
+
+img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+}
+
+.home-title h1 {
+  font-size: 2rem;
+  line-height: 1.3;
+}
+
+.home-title h2 {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+    Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  font-size: 1rem;
+  color: #232115a6;
+}
+
+.start-for-free {
+  padding: 10px 15px;
+  background-color: #db4527;
+  border-radius: 7px;
+  font-size: 17px;
+  color: #fff;
+  border-color: #db4527;
+  border-style: unset;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+.start-for-free:hover {
+  background-color: #d44124;
+}
+
+@media (min-width: 768px) {
+  app-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+  }
+  .container {
+    height: 750px;
+    width: 100%;
+    position: relative;
+  }
+
+  .home-title {
+    width: 100%;
+    margin: 0 auto;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    line-height: 2.5;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+  }
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    height: 100vh;
+  }
+
+  .home-title h1 {
+    font-size: 4.125rem;
+    line-height: 1.3;
+  }
+
+  .home-title h2 {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+      Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 1.5rem;
+    color: #232115a6;
+  }
+
+  .start-for-free {
+    padding: 10px 15px;
+    background-color: #db4527;
+    border-radius: 7px;
+    font-size: 17px;
+    color: #fff;
+    border-color: #db4527;
+    border-style: unset;
+    cursor: pointer;
+    letter-spacing: 1px;
+  }
+
+  .start-for-free:hover {
+    background-color: #d44124;
+  }
+
+  app-footer {
+    position: relative;
+  }
+}

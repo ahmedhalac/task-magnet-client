@@ -4,5 +4,11 @@
     "lbl-en": "English",
     "lbl-bos": "Bosnian"
   },
-  "lbl-login": "Log in"
+  "lbl-login": "Log in",
+  "lbl-register": "Register",
+  "lbl-pricing": "Pricing",
+  "home-page": {
+    "lbl-title": "TaskMagnet: <br> Where Tasks Become Achievements.",
+    "lbl-subtitle": "Enhance Your Daily Workflow with TaskMagnet."
+  }
 }
