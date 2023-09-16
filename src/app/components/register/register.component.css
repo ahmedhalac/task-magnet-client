@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
-  height: 100vh; /* This ensures the container takes up the full height of the viewport */
+  height: calc(100vh - 65px);
 }
 
 .form-container form {
@@ -31,4 +31,9 @@
 
 button {
   padding: 5px 10px;
+}
+
+.form-error {
+  font-size: 14px;
+  color: red;
 }

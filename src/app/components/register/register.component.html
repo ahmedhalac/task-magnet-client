@@ -1,28 +1,55 @@
+<app-navbar [shouldHideMenuItems]="true"></app-navbar>
 <div class="form-container">
     <form [formGroup]="registerForm" (submit)="onSubmit()">
         <div class="form-group">
             <label for="firstName">First Name</label>
             <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
+            <div class="form-error"
+                *ngIf="shouldShowErrorMessages && registerForm.get('firstName')?.hasError('required')">
+                {{errorMessages.firstName[0].message}}
+            </div>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name</label>
             <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
+            <div class="form-error"
+                *ngIf="shouldShowErrorMessages && registerForm.get('lastName')?.hasError('required')">
+                {{errorMessages.lastName[0].message}}
+            </div>
         </div>
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" id="username" name="username" formControlName="userName" required>
+            <div class="form-error"
+                *ngIf="shouldShowErrorMessages && registerForm.get('userName')?.hasError('required')">
+                {{errorMessages.userName[0].message}}
+            </div>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" formControlName="email" required>
+            <div class="form-error" *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('required')">
+                {{errorMessages.email[0].message}}
+            </div>
+            <div class="form-error" *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('email')">
+                {{errorMessages.email[1].message}}
+            </div>
         </div>
         <div class="form-group">
             <label for="country">Country</label>
             <input type="text" id="country" name="country" formControlName="country" required>
+            <div class="form-error"
+                *ngIf="shouldShowErrorMessages && registerForm.get('country')?.hasError('required')">
+                {{errorMessages.country[0].message}}
+            </div>
         </div>
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" id="password" name="password" formControlName="password" required>
+            <div class="form-error"
+                *ngIf="shouldShowErrorMessages && registerForm.get('password')?.hasError('required')">
+                {{errorMessages.password[0].message}}
+            </div>
         </div>
         <button type="submit">Register</button>
     </form>

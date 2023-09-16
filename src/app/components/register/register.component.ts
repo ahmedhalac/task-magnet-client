@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from 'src/app/core/models/User';
 import { ApiService } from 'src/app/core/services/api.service';
+import { errorMessages } from 'src/app/shared/constants/form-error-messages.const';
 
 @Component({
   selector: 'app-register',
@@ -10,6 +11,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class RegisterComponent {
   registerForm!: FormGroup;
+  errorMessages = errorMessages;
+  shouldShowErrorMessages = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -22,26 +25,28 @@ export class RegisterComponent {
 
   initializeForm(): void {
     this.registerForm = this.formBuilder.group({
-      firstName: '',
-      lastName: '',
-      userName: '',
-      email: '',
-      country: '',
-      password: '',
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      userName: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      country: ['', Validators.required],
+      password: ['', Validators.required],
     });
   }
   onSubmit(): void {
-    if (!this.registerForm.valid) {
-      console.log('You have entered invalid data');
-    } else {
+    if (this.registerForm.valid) {
       this.registerUser(this.registerForm.value);
-      this.registerForm.reset();
+    } else {
+      this.shouldShowErrorMessages = true;
     }
   }
 
   registerUser(data: User): void {
     this.apiService.registerUser(data).subscribe({
-      next: (res) => console.log(res),
+      next: () => {
+        this.registerForm.reset();
+        this.shouldShowErrorMessages = false;
+      },
       error: (err) => console.error(err),
     });
   }

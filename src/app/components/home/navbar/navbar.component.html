@@ -1,11 +1,11 @@
 <nav class="menu-container">
     <div class="nav-container">
-        <div class="logo">
+        <div class="logo" (click)="navigateToHomePage()">
             <img src="../../../../assets/images/logo.png" alt="logo">
             <h3 class="logo-text">TaskMagnet</h3>
         </div>
 
-        <div class="menu">
+        <div *ngIf="!shouldHideMenuItems" class="menu">
             <ul>
                 <li>
                     <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
