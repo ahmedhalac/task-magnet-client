@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from 'src/app/core/models/User';
+import { User } from 'src/app/core/models/user.model';
 import { ApiService } from 'src/app/core/services/api.service';
 import { errorMessages } from 'src/app/shared/constants/form-error-messages.const';
 
