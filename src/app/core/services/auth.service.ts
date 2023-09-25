@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { ConfigService } from './config.service';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Auth } from '../models/auth.model';
+import { Login } from '../models/login.model';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +15,8 @@ export class AuthService {
     this.baseUrl = this.config.getApiUrl();
   }
 
-  login(data: Auth): Observable<Auth> {
-    return this.http.post<any>(`${this.baseUrl}/auth/login`, data).pipe(
+  login(data: Auth): Observable<Login> {
+    return this.http.post<Login>(`${this.baseUrl}/auth/login`, data).pipe(
       catchError((error) => {
         return throwError(() => new error());
       })

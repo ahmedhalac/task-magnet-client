@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Auth } from 'src/app/core/models/auth.model';
 import { AuthService } from 'src/app/core/services/auth.service';
 
@@ -13,7 +15,9 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastr: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -35,10 +39,14 @@ export class LoginComponent {
     this.login(loginData);
   }
 
+  navigateToDasboard(): void {
+    this.router.navigate(['/dashboard']);
+  }
+
   login(loginData: Auth) {
     this.authService.login(loginData).subscribe({
-      next: (response) => console.log(response),
-      error: (err) => console.error(err),
+      next: (response) => this.navigateToDasboard(),
+      error: (err) => this.toastr.error('Invalid username or password'),
     });
   }
 }

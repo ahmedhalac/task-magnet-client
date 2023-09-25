@@ -12,6 +12,9 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SharedModule } from './shared/shared.module';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -24,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavbarComponent,
     LoginComponent,
     RegisterComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,6 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     HttpClientModule,
     ReactiveFormsModule,
     SharedModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
