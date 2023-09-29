@@ -15,6 +15,7 @@ import { SharedModule } from './shared/shared.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CookieService } from 'ngx-cookie-service';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -46,7 +47,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
     }),
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
