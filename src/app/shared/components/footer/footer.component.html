@@ -5,7 +5,7 @@
         </div>
         <div class="info-wrapper">
             <div class="info">
-                <p class="title">Join us in embracing the true essence of yoga.</p>
+                <p class="title">{{'home-page.lbl-subtitle' | translate}}</p>
             </div>
             <div class="contact-wrapper">
                 <div class="links-wrapper">
@@ -18,14 +18,26 @@
                             About</p>
                         <p class="link" [routerLink]="['/contact-us']" [routerLinkActiveOptions]="{exact:true}"
                             routerLinkActive="active">Contact</p>
+                        <p class="link" [routerLink]="['/pricing']" [routerLinkActiveOptions]="{exact:true}"
+                            routerLinkActive="active">Pricing</p>
+                        <p class="link" [routerLink]="['/login']" [routerLinkActiveOptions]="{exact:true}"
+                            routerLinkActive="active">Log in</p>
                     </div>
                 </div>
                 <div class="contact-container">
                     <div class="contact-info">
-                        <div class="email">
-                            <img src="../../../../assets/images/icons/email.svg" alt="Email">
-                            <p><a href="mailto:oscarmikeyt@gmail.com">oscarmikeyt@gmail.com</a></p>
-                        </div>
+                        <a href="mailto:oscarmikeyt@gmail.com">
+                            <img src="../../../../assets/images/svg/mail.svg" alt="Mail">
+                        </a>
+                        <a href="">
+                            <img src="../../../../assets/images/svg/facebook.svg" alt="Facebook">
+                        </a>
+                        <a href="https://github.com/ahmedhalac">
+                            <img src="../../../../assets/images/svg/github.svg" alt="Github">
+                        </a>
+                        <a href="">
+                            <img src="../../../../assets/images/svg/youtube.svg" alt="YouTube">
+                        </a>
                     </div>
                     <div class="copyright">
                         <p>© 2023, All Rights Reserved</p>

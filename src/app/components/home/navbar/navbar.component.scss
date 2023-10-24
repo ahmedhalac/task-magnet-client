@@ -34,6 +34,7 @@
       .logo {
         width: 130px;
         height: 48px;
+        cursor: pointer;
 
         @include media(">=tablet") {
           height: 55px;
@@ -82,14 +83,15 @@
       font-weight: 500;
       line-height: 24px;
       color: $secondary-black;
-
-      &.active {
-        //color: $primary-blue;
-      }
+      transition: color 250ms ease-out;
 
       &:last-child {
         margin-right: 0;
       }
+    }
+
+    .menu-item:hover {
+      color: $primary-red;
     }
   }
 

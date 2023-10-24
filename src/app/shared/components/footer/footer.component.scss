@@ -11,6 +11,7 @@
     justify-content: center;
     gap: 32px;
     flex-direction: column;
+    color: $primary-white;
 
     @include media(">=tablet") {
       padding: 64px 24px;
@@ -25,8 +26,7 @@
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      //border-bottom: 1px solid $secondary-white;
-      padding-bottom: 32px;
+      border-bottom: 1px solid $primary-white;
 
       img {
         width: 165px;
@@ -36,7 +36,7 @@
       @include media(">=desktop") {
         border-bottom: 0;
         padding: 0 64px 0 0;
-        //border-right: 1px solid $secondary-white;
+        border-right: 1px solid $primary-white;
       }
     }
 
@@ -54,9 +54,6 @@
       }
 
       .info {
-        display: flex;
-        flex-direction: column;
-
         @include media(">=tablet") {
           flex-direction: row;
           align-items: center;
@@ -65,23 +62,19 @@
         }
 
         .title {
-          //color: $secondary-white;
-          font-size: 40px;
+          font-size: 25px;
           font-style: normal;
           font-weight: 700;
-          line-height: 48px;
           letter-spacing: -0.8px;
           padding-bottom: 24px;
           margin: 0;
 
           @include media(">=tablet") {
-            font-size: 48px;
+            font-size: 35px;
             font-style: normal;
             font-weight: 700;
-            line-height: 64px;
             letter-spacing: -0.96px;
             padding-bottom: 0;
-            flex: 0 0 75%;
           }
         }
       }
@@ -92,7 +85,6 @@
         gap: 32px;
 
         @include media(">=tablet") {
-          flex-direction: row-reverse;
           justify-content: space-between;
         }
 
@@ -109,20 +101,24 @@
           .links {
             flex-direction: row;
             display: flex;
-            gap: 32px;
+            gap: 20px;
 
             @include media("<desktop") {
               display: none;
             }
 
             p {
-              //color: $secondary-white;
-              font-size: 20px;
+              font-size: 16px;
               font-style: normal;
               font-weight: 400;
               line-height: 24px;
               margin: 0;
               cursor: pointer;
+              transition: color 300ms ease-out;
+            }
+
+            p:hover {
+              color: $primary-red;
             }
           }
         }
@@ -139,7 +135,6 @@
           a {
             text-decoration: none;
             padding-left: 5px;
-            //color: $secondary-white;
           }
 
           p:last-child {
@@ -149,25 +144,22 @@
 
           .contact-info {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
             gap: 16px;
 
             @include media(">=tablet") {
               flex-direction: row;
             }
 
-            .email {
-              display: flex;
-              flex-direction: row;
-              align-items: center;
-              gap: 8px;
+            a > img {
+              width: 30px;
+              height: 30px;
             }
           }
 
           .contact-info,
           .copyright {
             p {
-              //color: $secondary-white;
               font-size: 16px;
               font-style: normal;
               font-weight: 400;

@@ -1,7 +1,8 @@
 <div class="header-container">
     <div class="header-wrapper">
         <div class="left-section">
-            <img class="logo" src="./../../../.././assets/images/svg/logo.svg" alt="Logo">
+            <img (click)="navigateToHomePage()" class="logo" src="./../../../.././assets/images/svg/logo.svg"
+                alt="Logo">
             <div class="menu">
                 <div [routerLink]="['/about-us']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
                     class="menu-item">
@@ -25,7 +26,8 @@
             <div class="menu-container">
                 <div *ngIf="isMobileMenuActive" class="mobile-menu">
                     <div class="close-container">
-                        <img class="logo" alt="Logo" src="./../../../.././assets/images/svg/logo.svg">
+                        <img (click)="navigateToHomePage()" class="logo" alt="Logo"
+                            src="./../../../.././assets/images/svg/logo.svg">
                         <img class="icon" (click)="toggleMobileMenu()" src="../../../../assets/images/svg/close.svg"
                             alt="Close icon">
                     </div>
