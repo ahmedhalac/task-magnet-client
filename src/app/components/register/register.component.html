@@ -1,57 +1,88 @@
 <app-navbar [shouldHideMenuItems]="true"></app-navbar>
-<div class="form-container">
-    <form [formGroup]="registerForm" (submit)="onSubmit()">
-        <div class="form-group">
-            <label for="firstName">First Name</label>
-            <input type="text" id="firstName" name="firstName" formControlName="firstName" required>
-            <div class="form-error"
-                *ngIf="shouldShowErrorMessages && registerForm.get('firstName')?.hasError('required')">
-                {{errorMessages.firstName[0].message}}
+<div class="wrapper">
+    <div class="contact-form-section">
+        <div class="content">
+            <p class="title">Register</p>
+            <p class="supporting-text">For any inquiries or assistance, please don't hesitate to get in touch with us.
+                <br><br>
+
+                Our team at S & S Veterans Services is here to provide veterans struggling with alcohol and drug abuse,
+                mental illness, and financial planning with the compassionate help they need. <br><br>
+
+                Your path to recovery and stability starts with a simple message or call. We're here to support you
+                every step of the way.
+            </p>
+        </div>
+        <div class="form-wrapper">
+            <div class="form">
+                <form [formGroup]="registerForm" (submit)="onSubmit()">
+                    <div class=" row">
+                        <div class="mr-24">
+                            <p for="firstName">First Name</p>
+                            <input type="text" id="firstName" name="firstName" formControlName="firstName" required
+                                placeholder="Enter your first name...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('firstName')?.hasError('required')">
+                                {{errorMessages.firstName[0].message}}
+                            </div>
+                        </div>
+                        <div class="mr-24">
+                            <p for="lastName">Last Name</p>
+                            <input type="text" id="lastName" name="lastName" formControlName="lastName" required
+                                placeholder="Enter your last name...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('lastName')?.hasError('required')">
+                                {{errorMessages.lastName[0].message}}
+                            </div>
+                        </div>
+                        <div class="mr-24">
+                            <p for="username">Username</p>
+                            <input type="text" id="username" name="username" formControlName="userName" required
+                                placeholder="Enter your username...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('userName')?.hasError('required')">
+                                {{errorMessages.userName[0].message}}
+                            </div>
+                        </div>
+                        <div class="mr-24">
+                            <p for="email">Email</p>
+                            <input type="email" id="email" name="email" formControlName="email" required
+                                placeholder="Enter your email...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('required')">
+                                {{errorMessages.email[0].message}}
+                            </div>
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('email')">
+                                {{errorMessages.email[1].message}}
+                            </div>
+                        </div>
+                        <div class="mr-24">
+                            <p for="country">Country</p>
+                            <input type="text" id="country" name="country" formControlName="country" required
+                                placeholder="Enter your country...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('country')?.hasError('required')">
+                                {{errorMessages.country[0].message}}
+                            </div>
+                        </div>
+                        <div class="mr-24">
+                            <p for="password">Password</p>
+                            <input type="password" id="password" name="password" formControlName="password" required
+                                placeholder="Enter your password...">
+                            <div class="form-error"
+                                *ngIf="shouldShowErrorMessages && registerForm.get('password')?.hasError('required')">
+                                {{errorMessages.password[0].message}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text">Already registerd? <a routerLink="/login">Go to login</a></p>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <button type="submit" class="primary">Register</button>
+                    </div>
+                </form>
             </div>
         </div>
-        <div class="form-group">
-            <label for="lastName">Last Name</label>
-            <input type="text" id="lastName" name="lastName" formControlName="lastName" required>
-            <div class="form-error"
-                *ngIf="shouldShowErrorMessages && registerForm.get('lastName')?.hasError('required')">
-                {{errorMessages.lastName[0].message}}
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" formControlName="userName" required>
-            <div class="form-error"
-                *ngIf="shouldShowErrorMessages && registerForm.get('userName')?.hasError('required')">
-                {{errorMessages.userName[0].message}}
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" formControlName="email" required>
-            <div class="form-error" *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('required')">
-                {{errorMessages.email[0].message}}
-            </div>
-            <div class="form-error" *ngIf="shouldShowErrorMessages && registerForm.get('email')?.hasError('email')">
-                {{errorMessages.email[1].message}}
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="country">Country</label>
-            <input type="text" id="country" name="country" formControlName="country" required>
-            <div class="form-error"
-                *ngIf="shouldShowErrorMessages && registerForm.get('country')?.hasError('required')">
-                {{errorMessages.country[0].message}}
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" formControlName="password" required>
-            <div class="form-error"
-                *ngIf="shouldShowErrorMessages && registerForm.get('password')?.hasError('required')">
-                {{errorMessages.password[0].message}}
-            </div>
-        </div>
-        <p>Already registerd? <a routerLink="/login">Go to login</a></p>
-        <button type="submit">Register</button>
-    </form>
+    </div>
 </div>

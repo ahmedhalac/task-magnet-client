@@ -1,33 +1,165 @@
-.form-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-}
+@import "../../shared/scss/colors.scss";
+@import "../../shared/scss/mixins.scss";
+.wrapper {
+  //background: url("../../../assets/images/webp/landing-img8.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  object-fit: cover;
+  background-size: cover;
 
-.form-container form {
-  max-width: 400px; /* Adjust the maximum width as needed */
-  padding: 20px;
-  border: 1px solid #ccc;
-  background-color: #fff;
-  border-radius: 5px;
-  width: 50%;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
+  @include media(">=large-monitor") {
+    height: calc(100vh - 481.5px);
+  }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
-  padding: 10px 0;
-}
+  .contact-form-section {
+    @include center;
+    @include display-flex;
+    flex-direction: row;
+    gap: 32px;
+    padding: 96px 64px;
 
-.form-group label {
-  padding-bottom: 5px;
-}
+    @include media("<desktop") {
+      padding: 96px 24px;
+      gap: 64px;
+      flex-direction: column;
+    }
 
-.form-group input {
-  padding: 5px 0;
-}
+    @include media("<tablet") {
+      padding: 48px 16px;
+      gap: 32px;
+    }
 
-button {
-  padding: 5px 10px;
+    .content {
+      display: flex;
+      flex-direction: column;
+      flex: 50%;
+
+      @include media(">=desktop") {
+        padding-bottom: 0px;
+      }
+
+      p {
+        margin: 0;
+        color: $secondary-black;
+
+        &.title {
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 48px;
+          letter-spacing: -0.8px;
+          padding: 8px 0px 24px;
+
+          @include media(">=tablet") {
+            font-size: 48px;
+            line-height: 64px;
+            letter-spacing: -0.96px;
+          }
+        }
+
+        &.supporting-text {
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 24px;
+
+          @include media(">=desktop") {
+            font-size: 24px;
+            line-height: 32px;
+          }
+        }
+      }
+    }
+
+    .form-wrapper {
+      border-radius: 16px;
+      height: 100%;
+      width: 100%;
+      flex: 50%;
+
+      .form {
+        padding: 24px;
+
+        @include media(">=tablet") {
+          padding: 40px;
+        }
+
+        .row {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+
+          @include media("<=large-phone") {
+            flex-direction: column;
+          }
+
+          div {
+            width: 100%;
+
+            @include media("<=large-phone") {
+              padding-right: 32px;
+              margin-right: 0;
+            }
+
+            p {
+              margin: 0;
+              color: #191b1f;
+              font-size: 14px;
+              font-weight: 500;
+              line-height: 16px;
+              margin-bottom: 4px;
+            }
+
+            input {
+              width: 100%;
+              margin-bottom: 24px;
+              padding: 12px 16px;
+              box-sizing: border-box;
+              border-radius: var(--radius-radius-md, 8px);
+              border: 1px solid var(--input-input-border, #dedfe3);
+              background: var(--input-input-bg, #fff);
+            }
+
+            &.mr-24 {
+              margin-right: 24px;
+            }
+          }
+        }
+
+        input::placeholder {
+          color: #cccfd2;
+          font-size: 16px;
+          font-weight: 400;
+          line-height: 24px;
+        }
+
+        .text {
+          margin: 0;
+          color: #191b1f;
+          font-size: 15px;
+          font-weight: 500;
+        }
+
+        .item {
+          width: 100%;
+          margin-bottom: 24px;
+        }
+
+        button {
+          width: 100%;
+          border-radius: 100px;
+          border: 0;
+          color: $primary-white;
+          background-color: $secondary-black;
+          padding: 12px 16px;
+          cursor: pointer;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 500;
+          line-height: 24px;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
 }

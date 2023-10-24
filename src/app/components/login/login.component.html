@@ -1,15 +1,40 @@
 <app-navbar [shouldHideMenuItems]="true"></app-navbar>
-<div class="form-container">
-    <form [formGroup]="loginForm" (submit)="onSubmit()">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" formControlName="username" required>
+<div class="wrapper">
+    <div class="contact-form-section">
+        <div class="content">
+            <p class="title">Log in</p>
+            <p class="supporting-text">For any inquiries or assistance, please don't hesitate to get in touch with us.
+                <br><br>
+
+                Our team at S & S Veterans Services is here to provide veterans struggling with alcohol and drug abuse,
+                mental illness, and financial planning with the compassionate help they need. <br><br>
+
+                Your path to recovery and stability starts with a simple message or call. We're here to support you
+                every step of the way.
+            </p>
         </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" formControlName="password" required>
+        <div class="form-wrapper">
+            <div class="form">
+                <form [formGroup]="loginForm" (submit)="onSubmit()">
+                    <div class="row">
+                        <div class="mr-24">
+                            <p>Username</p>
+                            <input type="text" id="username" name="username" formControlName="username" required
+                                placeholder="Enter your username...">
+                        </div>
+                        <div class="mr-24">
+                            <p>Password</p>
+                            <input type="password" id="password" name="password" formControlName="password" required
+                                placeholder="Enter your password...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <p class="text">Don’t have an account? <a routerLink="/register">Register</a></p>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <button type="submit" class="primary">Log in</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <p>Don’t have an account? <a routerLink="/register">Register</a></p>
-        <button type="submit">Login</button>
-    </form>
+    </div>
 </div>
