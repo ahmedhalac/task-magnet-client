@@ -2,7 +2,7 @@
 @import "../../scss/mixins.scss";
 
 .footer-wrapper {
-  //background: $primary-green;
+  background: $secondary-black;
   .footer-container {
     padding: 48px 16px;
     max-width: 1280px;
@@ -84,27 +84,6 @@
             flex: 0 0 75%;
           }
         }
-
-        .contact-us-btn {
-          button {
-            border-radius: 100px;
-            background: $primary-white;
-            font-size: 16px;
-            font-weight: 500;
-            line-height: 24px;
-            //color: $primary-gray;
-            width: 100%;
-            padding: 12px 32px;
-            border: none;
-            cursor: pointer;
-          }
-
-          @include media(">=tablet") {
-            button {
-              width: auto;
-            }
-          }
-        }
       }
 
       .contact-wrapper {
@@ -177,8 +156,7 @@
               flex-direction: row;
             }
 
-            .email,
-            .phone {
+            .email {
               display: flex;
               flex-direction: row;
               align-items: center;

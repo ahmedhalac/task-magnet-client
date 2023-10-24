@@ -9,7 +9,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
   @Input() shouldHideMenuItems = false;
-  selectedLanguage: string = '';
+  selectedLanguage: string | undefined;
+  isMobileMenuActive = false;
 
   constructor(
     private translateService: TranslateService,
@@ -18,8 +19,13 @@ export class NavbarComponent {
 
   ngOnInit(): void {}
 
+  toggleMobileMenu(): void {
+    this.isMobileMenuActive = !this.isMobileMenuActive;
+  }
+
   onLanguageChange(): void {
-    this.translateService.setDefaultLang(this.selectedLanguage);
+    if (this.selectedLanguage)
+      this.translateService.setDefaultLang(this.selectedLanguage);
   }
 
   navigateToHomePage(): void {

@@ -1,29 +1,62 @@
-<nav class="menu-container">
-    <div class="nav-container">
-        <div class="logo" (click)="navigateToHomePage()">
-            <img src="../../../../assets/images/logo.png" alt="logo">
-            <h3 class="logo-text">TaskMagnet</h3>
-        </div>
+<div class="header-container">
+    <div class="header-wrapper">
+        <div class="left-section">
+            <img class="logo" src="./../../../.././assets/images/svg/logo.svg" alt="Logo">
+            <div class="menu">
+                <div [routerLink]="['/about-us']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                    class="menu-item">
+                    <p>About</p>
+                </div>
+                <div [routerLink]="['/contact-us']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                    class="menu-item">
+                    <p>Contact</p>
+                </div>
+                <div [routerLink]="['/pricing']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                    class="menu-item">
+                    <p>Pricing</p>
+                </div>
+                <div class="separator"></div>
+                <div [routerLink]="['/login']" [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                    class="menu-item">
+                    <p>Log in</p>
+                </div>
+            </div>
 
-        <div *ngIf="!shouldHideMenuItems" class="menu">
-            <ul>
-                <li>
-                    <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
-                        <option value="en" autofocus>{{'languages.lbl-en' | translate}}</option>
-                        <option value="bos">{{'languages.lbl-bos' | translate}}</option>
-                    </select>
-                </li>
-                <li>
-                    <a>{{'lbl-pricing' | translate}}</a>
-                </li>
-                <li class="divider"></li>
-                <li>
-                    <a routerLink="login">{{'lbl-login' | translate}}</a>
-                </li>
-                <li>
-                    <a routerLink="register">{{'lbl-register' | translate}}</a>
-                </li>
-            </ul>
+            <div class="menu-container">
+                <div *ngIf="isMobileMenuActive" class="mobile-menu">
+                    <div class="close-container">
+                        <img class="logo" alt="Logo" src="./../../../.././assets/images/svg/logo.svg">
+                        <img class="icon" (click)="toggleMobileMenu()" src="../../../../assets/images/svg/close.svg"
+                            alt="Close icon">
+                    </div>
+                    <div class="options-container">
+                        <a (click)="toggleMobileMenu()" [routerLink]="['/about-us']"
+                            [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                            class="mobile-item">About</a>
+                        <a (click)="toggleMobileMenu()" [routerLink]="['/contact-us']"
+                            [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                            class="mobile-item">Contact</a>
+                        <a (click)="toggleMobileMenu()" [routerLink]="['/pricing']"
+                            [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active"
+                            class="mobile-item">Pricing</a>
+                        <a (click)="toggleMobileMenu()" [routerLink]="['/login']"
+                            [routerLinkActiveOptions]="{exact:true}" routerLinkActive="active" class="mobile-item">Log
+                            in</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="right-section">
+            <img (click)="toggleMobileMenu()" class="menu-icon" src="../../../../assets/images/svg/menu.svg"
+                alt="Menu icon">
         </div>
     </div>
-</nav>
+</div>
+
+<!-- <li>
+    <select [(ngModel)]="selectedLanguage" (change)="onLanguageChange()">
+        <option value="en" autofocus>{{'languages.lbl-en' | translate}}</option>
+        <option value="bos">{{'languages.lbl-bos' | translate}}</option>
+    </select>
+</li> -->
