@@ -7,7 +7,7 @@ import { errorMessages } from 'src/app/shared/constants/form-error-messages.cons
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
   registerForm!: FormGroup;

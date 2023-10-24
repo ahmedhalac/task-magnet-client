@@ -1,0 +1,210 @@
+@import "../../scss/colors.scss";
+@import "../../scss/mixins.scss";
+
+.footer-wrapper {
+  //background: $primary-green;
+  .footer-container {
+    padding: 48px 16px;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-direction: column;
+
+    @include media(">=tablet") {
+      padding: 64px 24px;
+    }
+
+    @include media(">=desktop") {
+      padding: 96px 64px;
+      flex-direction: row;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      //border-bottom: 1px solid $secondary-white;
+      padding-bottom: 32px;
+
+      img {
+        width: 165px;
+        height: 165px;
+      }
+
+      @include media(">=desktop") {
+        border-bottom: 0;
+        padding: 0 64px 0 0;
+        //border-right: 1px solid $secondary-white;
+      }
+    }
+
+    .info-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      @include media(">=tablet") {
+        gap: 16px;
+      }
+
+      @include media(">=desktop") {
+        margin-left: 32px;
+        gap: 32px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        @include media(">=tablet") {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          gap: 32px;
+        }
+
+        .title {
+          //color: $secondary-white;
+          font-size: 40px;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 48px;
+          letter-spacing: -0.8px;
+          padding-bottom: 24px;
+          margin: 0;
+
+          @include media(">=tablet") {
+            font-size: 48px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: 64px;
+            letter-spacing: -0.96px;
+            padding-bottom: 0;
+            flex: 0 0 75%;
+          }
+        }
+
+        .contact-us-btn {
+          button {
+            border-radius: 100px;
+            background: $primary-white;
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 24px;
+            //color: $primary-gray;
+            width: 100%;
+            padding: 12px 32px;
+            border: none;
+            cursor: pointer;
+          }
+
+          @include media(">=tablet") {
+            button {
+              width: auto;
+            }
+          }
+        }
+      }
+
+      .contact-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        @include media(">=tablet") {
+          flex-direction: row-reverse;
+          justify-content: space-between;
+        }
+
+        .links-wrapper {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          @include media(">=tablet") {
+            gap: 0;
+            justify-content: space-between;
+          }
+
+          .links {
+            flex-direction: row;
+            display: flex;
+            gap: 32px;
+
+            @include media("<desktop") {
+              display: none;
+            }
+
+            p {
+              //color: $secondary-white;
+              font-size: 20px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 24px;
+              margin: 0;
+              cursor: pointer;
+            }
+          }
+        }
+
+        .contact-container {
+          display: flex;
+          flex-direction: column;
+          gap: 32px;
+
+          @include media(">=tablet") {
+            gap: 16px;
+          }
+
+          a {
+            text-decoration: none;
+            padding-left: 5px;
+            //color: $secondary-white;
+          }
+
+          p:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+          }
+
+          .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+
+            @include media(">=tablet") {
+              flex-direction: row;
+            }
+
+            .email,
+            .phone {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+              gap: 8px;
+            }
+          }
+
+          .contact-info,
+          .copyright {
+            p {
+              //color: $secondary-white;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 24px;
+              margin: 0;
+            }
+          }
+
+          .copyright {
+            p {
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
