@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ConfigService } from './config.service';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Auth } from '../models/auth.model';
 import { Login } from '../models/login.model';
 import { CookieService } from 'ngx-cookie-service';
@@ -21,20 +21,22 @@ export class AuthService {
   }
 
   login(credentials: Auth): Observable<Login> {
-    return this.http
-      .post<Login>(`${this.baseUrl}/auth/login`, credentials)
-      .pipe(
-        tap((res) => {
-          this.cookieService.set('access_token', res.token);
-        })
-      );
+    return this.http.post<Login>(`${this.baseUrl}/auth/login`, credentials);
   }
 
-  refreshToken(): Observable<Login> {
-    return this.http.post<Login>(`${this.baseUrl}/auth/refresh-token`, {});
+  isAuthenticated(): boolean {
+    return !!this.getAccessToken();
+  }
+
+  getAccessToken(): string {
+    return this.cookieService.get('access_token');
+  }
+
+  setAccessToken(token: string): void {
+    this.cookieService.set('access_token', token);
   }
 
   logout(): Observable<any> {
-    return this.http.post(`${this.baseUrl}/auth/logout`, {});
+    return this.http.post<any>(`${this.baseUrl}/auth/logout`, {});
   }
 }

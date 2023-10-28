@@ -4,56 +4,82 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpClient,
 } from '@angular/common/http';
-import { Observable, catchError, switchMap } from 'rxjs';
-import { CookieService } from 'ngx-cookie-service';
+import {
+  EMPTY,
+  Observable,
+  catchError,
+  finalize,
+  switchMap,
+  throwError,
+} from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
+import { ConfigService } from 'src/app/core/services/config.service';
+import { Login } from 'src/app/core/models/login.model';
 
 @Injectable()
 export class RefreshTokenInterceptor implements HttpInterceptor {
+  private isRefreshing = false;
+  private baseUrl: string;
+
   constructor(
-    private cookieService: CookieService,
-    private authService: AuthService
-  ) {}
+    private authService: AuthService,
+    private config: ConfigService,
+    private http: HttpClient
+  ) {
+    this.baseUrl = this.config.getApiUrl();
+  }
 
   intercept(
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    if (
-      request.url.endsWith('/refresh-token') ||
-      request.url.endsWith('/auth/login')
-    ) {
-      return next.handle(request);
-    }
+    const accessToken = this.authService.getAccessToken();
 
-    const accessToken = this.cookieService.get('access_token');
     if (accessToken) {
-      request = request.clone({
-        setHeaders: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      });
+      request = this.addToken(request, accessToken);
     }
 
     return next.handle(request).pipe(
       catchError((error) => {
-        // Handle token expiration error and attempt to refresh the token.
-        if (error.status === 401 && error.error === 'Token expired') {
-          return this.authService.refreshToken().pipe(
-            switchMap((response) => {
-              this.cookieService.set('access_token', response.token);
-              request = request.clone({
-                setHeaders: {
-                  Authorization: `Bearer ${response.token}`,
-                },
-              });
-              return next.handle(request);
+        if (error.status === 401 && !this.isRefreshing) {
+          this.isRefreshing = true;
+          return this.refreshToken().pipe(
+            switchMap((res: any) => {
+              if (res) {
+                this.authService.setAccessToken(res.token);
+                request = this.addToken(request, res.token);
+                return next.handle(request);
+              } else {
+                this.authService.logout();
+                return throwError(() => new Error(error));
+              }
+            }),
+            catchError((refreshError) => {
+              this.authService.logout();
+              return throwError(() => new Error(refreshError));
+            }),
+            finalize(() => {
+              this.isRefreshing = false;
             })
           );
+        } else {
+          return throwError(() => new Error(error));
         }
-        throw error;
       })
     );
+  }
+
+  private addToken(request: HttpRequest<any>, token: string): HttpRequest<any> {
+    return request.clone({
+      setHeaders: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+  }
+
+  private refreshToken(): Observable<Login> {
+    return this.http.post<Login>(`${this.baseUrl}/auth/refresh-token`, {});
   }
 }
