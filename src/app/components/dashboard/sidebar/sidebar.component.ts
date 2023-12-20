@@ -8,6 +8,8 @@ import { ApiService } from 'src/app/core/services/api.service';
 })
 export class SidebarComponent {
   username = '';
+  isCollapsed = false;
+
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -21,5 +23,9 @@ export class SidebarComponent {
       },
       error: (err) => console.error(err),
     });
+  }
+
+  toggleCollapse(): void {
+    this.isCollapsed = !this.isCollapsed;
   }
 }

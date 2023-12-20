@@ -3,10 +3,34 @@
 
 .container {
   width: 300px;
-  height: 50vh;
+  height: 100dvh;
   background-color: $primary-sidebar;
+  transition: width 0.3s ease;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+
+  &.collapsed {
+    width: 50px;
+    transition: width 0.3s ease;
+    background-color: $primary-white;
+    padding-left: 0;
+  }
+
   .content {
     display: flex;
     flex-direction: column;
+    .users-section {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .toggle-section {
+    span {
+      cursor: pointer;
+    }
   }
 }

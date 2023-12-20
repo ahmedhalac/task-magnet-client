@@ -1,6 +1,16 @@
-<div class="container">
-    <div class="content">
-        <div class="user">{{username}}</div>
-        <div class="plans">Plans</div>
+<div class="container" [ngClass]="{'collapsed': isCollapsed}">
+    <div *ngIf="!isCollapsed" class="content">
+        <div class="users-section">
+            <div class="user">
+                <span><i class="fa-regular fa-user"></i></span>
+                <span>{{username}}</span>
+            </div>
+        </div>
+        <div class="add-task">Add Task</div>
+        <div class="plans">Today</div>
+        <div class="plans">Upcoming</div>
+    </div>
+    <div class="toggle-section">
+        <span (click)="toggleCollapse()"><i class="fa-solid fa-minimize"></i></span>
     </div>
 </div>
