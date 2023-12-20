@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 import { RefreshTokenInterceptor } from './helpers/interceptors/auth.interceptor';
+import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,

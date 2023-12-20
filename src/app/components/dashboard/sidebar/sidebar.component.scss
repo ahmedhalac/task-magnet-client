@@ -1,0 +1,12 @@
+@import "../../../shared/scss/colors.scss";
+@import "../../../shared/scss/mixins.scss";
+
+.container {
+  width: 300px;
+  height: 50vh;
+  background-color: $primary-sidebar;
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}
