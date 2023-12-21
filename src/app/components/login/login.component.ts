@@ -24,6 +24,13 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.initializeForm();
+    this.redirectToDashboardIfAuthenticated();
+  }
+
+  redirectToDashboardIfAuthenticated(): void {
+    if (this.authService.isAuthenticated()) {
+      this.navigateToDasboard();
+    }
   }
 
   initializeForm(): void {

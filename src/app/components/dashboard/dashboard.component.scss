@@ -2,8 +2,22 @@
 @import "../../shared/scss/mixins.scss";
 
 .container {
-    .wrapper {
-        display: flex;
-        flex-direction: row;
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+
+    .content-container {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+
+      .header-bar {
+        height: 50px;
+      }
+
+      .separator {
+        border-bottom: 1px solid lightgray;
+      }
     }
+  }
 }

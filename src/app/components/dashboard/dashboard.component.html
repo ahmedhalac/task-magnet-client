@@ -3,9 +3,20 @@
         <div class="sidebar">
             <app-sidebar></app-sidebar>
         </div>
-        <div class="content">
-            <button (click)="logout()">Logout</button>
+        <div class="content-container">
+            <div class="header-bar">
+                <div class="content">
+                    <div class="users-section">
+                        <div class="user">
+                            <span><i class="fa-regular fa-user"></i></span>
+                            <span>{{username}}</span>
+                        </div>
+                    </div>
+                    <button (click)="logout()">Logout</button>
+                </div>
+            </div>
+            <div class="separator"></div>
+            <router-outlet></router-outlet>
         </div>
-        <router-outlet></router-outlet>
     </div>
 </div>

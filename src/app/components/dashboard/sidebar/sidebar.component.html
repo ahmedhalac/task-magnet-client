@@ -1,16 +1,11 @@
 <div class="container" [ngClass]="{'collapsed': isCollapsed}">
+    <div class="header">
+        <img *ngIf="!isCollapsed" class="logo" src="./../../../.././assets/images/svg/logo.svg" alt="Logo">
+        <span class="toggle-section" (click)="toggleCollapse()"><i class="fa-solid fa-minimize"></i></span>
+    </div>
     <div *ngIf="!isCollapsed" class="content">
-        <div class="users-section">
-            <div class="user">
-                <span><i class="fa-regular fa-user"></i></span>
-                <span>{{username}}</span>
-            </div>
-        </div>
         <div class="add-task">Add Task</div>
         <div class="plans"><a routerLink="./today">Today</a></div>
         <div class="plans"><a routerLink="./upcoming">Upcoming</a></div>
-    </div>
-    <div class="toggle-section">
-        <span (click)="toggleCollapse()"><i class="fa-solid fa-minimize"></i></span>
     </div>
 </div>

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,25 +6,14 @@ import { ApiService } from 'src/app/core/services/api.service';
   styleUrls: ['./sidebar.component.scss'],
 })
 export class SidebarComponent {
-  username = '';
   isCollapsed = false;
 
-  constructor(private apiService: ApiService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.getLoggedUser();
-  }
-
-  getLoggedUser(): void {
-    this.apiService.getLoggedInUser().subscribe({
-      next: (res) => {
-        this.username = res?.data?.userName;
-      },
-      error: (err) => console.error(err),
-    });
-  }
+  ngOnInit(): void {}
 
   toggleCollapse(): void {
+    console.log('clicked');
     this.isCollapsed = !this.isCollapsed;
   }
 }
