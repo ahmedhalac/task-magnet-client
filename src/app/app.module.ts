@@ -22,6 +22,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CookieService } from 'ngx-cookie-service';
 import { RefreshTokenInterceptor } from './helpers/interceptors/auth.interceptor';
 import { SidebarComponent } from './components/dashboard/sidebar/sidebar.component';
+import { TodayComponent } from './components/dashboard/today/today.component';
+import { UpcomingComponent } from './components/dashboard/upcoming/upcoming.component';
+import { DashboardModule } from './components/dashboard/dashboard.module';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -36,6 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     DashboardComponent,
     SidebarComponent,
+    TodayComponent,
+    UpcomingComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient],
       },
     }),
+    DashboardModule
   ],
   providers: [
     CookieService,
