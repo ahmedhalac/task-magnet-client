@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from 'src/app/core/services/api.service';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -15,8 +14,7 @@ export class DashboardComponent {
   constructor(
     private authService: AuthService,
     private apiService: ApiService,
-    private cookieService: CookieService,
-    private router: Router
+    private cookieService: CookieService
   ) {}
 
   ngOnInit(): void {
@@ -36,8 +34,7 @@ export class DashboardComponent {
     this.authService.logout().subscribe({
       next: () => {
         this.cookieService.delete('access_token');
-        this.router.navigate(['/']);
-        //location.reload();
+        location.reload();
       },
       error: (err) => console.error(err),
     });

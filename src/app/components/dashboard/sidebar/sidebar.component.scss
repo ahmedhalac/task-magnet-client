@@ -31,9 +31,7 @@
     }
 
     .toggle-section {
-      span {
-        cursor: pointer;
-      }
+      cursor: pointer;
     }
   }
 
@@ -42,8 +40,33 @@
     flex-direction: column;
     justify-content: center;
     padding-top: 30px;
+
     div {
       padding: 10px;
+      a {
+        text-decoration: none;
+        color: $secondary-black;
+        font-size: 16px;
+
+        &.active-link {
+          color: $primary-red;
+        }
+      }
+
+      i {
+        padding-right: 10px;
+      }
+
+      &.active-link {
+        background-color: $lighter-red;
+        border-radius: 5px;
+      }
+    }
+
+    div:not(.active-link):hover {
+      background-color: #f0e8e6;
+      border-radius: 5px;
+      cursor: pointer;
     }
   }
 }

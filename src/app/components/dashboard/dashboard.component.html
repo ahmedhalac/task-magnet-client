@@ -6,16 +6,15 @@
         <div class="content-container">
             <div class="header-bar">
                 <div class="content">
-                    <div class="users-section">
-                        <div class="user">
-                            <span><i class="fa-regular fa-user"></i></span>
-                            <span>{{username}}</span>
-                        </div>
+                    <div class="user">
+                        <span><i class="fa-regular fa-user fa-lg"></i></span>
+                        <span>{{username}}</span>
                     </div>
-                    <button (click)="logout()">Logout</button>
+                    <span class="logout" (click)="logout()"><i class="fa-solid fa-right-from-bracket fa-lg"
+                            style="color: #bc1a1a;"></i></span>
+
                 </div>
             </div>
-            <div class="separator"></div>
             <router-outlet></router-outlet>
         </div>
     </div>

@@ -4,8 +4,10 @@
         <span class="toggle-section" (click)="toggleCollapse()"><i class="fa-solid fa-minimize"></i></span>
     </div>
     <div *ngIf="!isCollapsed" class="content">
-        <div class="add-task">Add Task</div>
-        <div class="plans"><a routerLink="./today">Today</a></div>
-        <div class="plans"><a routerLink="./upcoming">Upcoming</a></div>
+        <div class="add-task"><i class="fa-solid fa-circle-plus"></i>Add Task</div>
+        <div class="plans" routerLinkActive="active-link" routerLink="./today"><a routerLinkActive="active-link"><i
+                    class="fa-solid fa-calendar-day"></i>Today</a></div>
+        <div class="plans" routerLinkActive="active-link" routerLink="./upcoming"><a routerLinkActive="active-link"><i
+                    class="fa-solid fa-calendar-week"></i>Upcoming</a></div>
     </div>
 </div>
