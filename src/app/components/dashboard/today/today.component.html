@@ -1,1 +1,18 @@
-<p>today works!</p>
+<div class="container">
+    <div class="wrapper">
+        <div class="content">
+            <div class="tasks">
+                <p class="title">Today</p>
+                <p class="num-of-tasks"><i class="fa-solid fa-check" style="color: #bc1a1a;"></i>{{numberOfTasks}} tasks
+                </p>
+            </div>
+            <div class="date">
+                <p>{{today | date}}, {{dayOfTheWeek}}</p>
+            </div>
+            <div *ngIf="!isAddTaskClicked" class="add-task" (click)="onAddTask()">
+                <div class="add-task"><i class="fa-solid fa-plus"></i>Add Task</div>
+            </div>
+        
+        </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+@import "../../../shared/scss/colors.scss";
+@import "../../../shared/scss/mixins.scss";
+
+.container {
+  width: 50%;
+  margin: 0 auto;
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+
+    .content {
+      width: 100%;
+      .tasks {
+        .title {
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .num-of-tasks {
+          padding-top: 10px;
+          color: gray;
+
+          i {
+            padding-right: 8px;
+          }
+        }
+      }
+
+      .date {
+        padding-top: 30px;
+        border-bottom: 1px solid lightgray;
+
+        p {
+          font-size: 16px;
+          font-weight: 600;
+          padding-bottom: 10px;
+        }
+      }
+
+      .add-task {
+        padding-top: 8px;
+        cursor: pointer;
+        i {
+          padding-right: 8px;
+        }
+      }
+
+      .add-task:hover {
+        color: $primary-red;
+      }
+    }
+  }
+}

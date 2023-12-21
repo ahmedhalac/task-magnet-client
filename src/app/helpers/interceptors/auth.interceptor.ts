@@ -4,30 +4,17 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
-  HttpClient,
 } from '@angular/common/http';
-import {
-  EMPTY,
-  Observable,
-  catchError,
-  finalize,
-  switchMap,
-  throwError,
-} from 'rxjs';
+import { Observable, catchError, finalize, switchMap, throwError } from 'rxjs';
 import { AuthService } from '../../core/services/auth.service';
 import { ConfigService } from 'src/app/core/services/config.service';
-import { Login } from 'src/app/core/models/login.model';
 
 @Injectable()
 export class RefreshTokenInterceptor implements HttpInterceptor {
   private isRefreshing = false;
   private baseUrl: string;
 
-  constructor(
-    private authService: AuthService,
-    private config: ConfigService,
-    private http: HttpClient
-  ) {
+  constructor(private authService: AuthService, private config: ConfigService) {
     this.baseUrl = this.config.getApiUrl();
   }
 
@@ -45,7 +32,7 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
       catchError((error) => {
         if (error.status === 401 && !this.isRefreshing) {
           this.isRefreshing = true;
-          return this.refreshToken().pipe(
+          return this.authService.refreshToken().pipe(
             switchMap((res: any) => {
               if (res) {
                 this.authService.setAccessToken(res.token);
@@ -77,9 +64,5 @@ export class RefreshTokenInterceptor implements HttpInterceptor {
         Authorization: `Bearer ${token}`,
       },
     });
-  }
-
-  private refreshToken(): Observable<Login> {
-    return this.http.post<Login>(`${this.baseUrl}/auth/refresh-token`, {});
   }
 }

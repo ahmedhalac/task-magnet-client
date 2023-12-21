@@ -39,4 +39,8 @@ export class AuthService {
   logout(): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/auth/logout`, {});
   }
+
+  refreshToken(): Observable<Login> {
+    return this.http.post<Login>(`${this.baseUrl}/auth/refresh-token`, {});
+  }
 }
